@@ -29,6 +29,18 @@ function App() {
             itemName: "Nike Air Force 1 '07",
             price: "10,795.00",
             itemImage: "nike-air-force-107.png"
+        },
+        {
+            id: 2,
+            itemName: "Nike Air Jordan 1 Mid",
+            price: "11,495.00",
+            itemImage: "air-jordan-1-mid.png"
+        },
+        {
+            id: 3,
+            itemName: "Nike Air Max Pulse Roam",
+            price: "14,995.00",
+            itemImage: "air-max-pulse-roam-shoes.png"
         }
     ]
 
@@ -38,7 +50,7 @@ function App() {
             <Routes>        
                 <Route path="/"  element={<Products items={ items }/>} />
                 <Route path="/products"  element={<Products items={ items }/>}/>
-                <Route path="/cart"  element={<Cart/>}/>
+                <Route path="/cart"  element={<Cart />}/>
             </Routes>
         </div>
     )
