@@ -32,17 +32,17 @@ const Products = (props) => {
                     key={item.id}
                     className="max-w-sm bg-theme-color border rounded-lg border-gray-700 mr-10">
                         <img className="rounded-t-lg" src={`../src/assets/${item.itemImage}`} alt="" />
-                        <div className="p-5">
+                        <div className="p-5 font-montserrat">
                             <h5 className="mb-2 text-2xl font-thin tracking-tight text-white font-mono">{item.itemName}</h5>
-                            <p className="mb-5 text-white font-normal">Price:  &#x20b9; {item.price}</p>      
+                            <p className="mb-5 text-white">Price:  &#x20b9; {item.price}</p>      
                             <div className="relative flex items-center">
-                                <p className="mr-4 text-white font-normal">Quantity:</p>
+                                <p className="mr-4 text-white">Quantity:</p>
                                 <button type="button" className="bg-theme-color rounded-s-lg p-3 h-11 border-2 border-r-0 border-slate-800 active:bg-slate-800/40" onClick={()=>subtract(`${item.id}`)}>
                                     <svg className="w-3 h-3 text-white" viewBox="0 0 18 2">
                                         <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h16"/>
                                     </svg>
                                 </button>
-                                <div className="text-white py-[8px] px-5 border-2 border-slate-800" id={`quantity-div-${item.id}`}>
+                                <div className="text-white py-[8px] w-12 text-center border-2 border-slate-800" id={`quantity-div-${item.id}`}>
                                     0
                                 </div>
                                 <button type="button" className="bg-theme-color rounded-e-lg p-3 h-11 border-2 border-l-0 border-slate-800 active:bg-slate-800/40 " onClick={()=>add(`${item.id}`)}>
@@ -51,10 +51,14 @@ const Products = (props) => {
                                     </svg>
                                 </button>
                             </div>   
-                            <button type="button" 
+                            <motion.button 
+                            whileTap={{
+                                scale:0.85
+                            }}
+                            type="button" 
                             className="text-white hover:text-theme-color border-[1.5px] border-slate-50 hover:border-theme-color py-2 px-4 my-6 rounded-lg float-right hover:bg-slate-50 active:bg-slate-200"
                             onClick={()=>{
-                                const numAdded = document.getElementById(`quantity-div-${item.id}`).innerText
+                                const numAdded = parseInt(document.getElementById(`quantity-div-${item.id}`).innerText)
                                 if (numAdded == 0) return
                                 let itemWithQuantity = JSON.parse(JSON.stringify(item))
                                 itemWithQuantity.quantity = numAdded
@@ -63,7 +67,7 @@ const Products = (props) => {
                             >
                             
                                 Add to cart
-                            </button>                    
+                            </motion.button>                    
                         </div>
                     </motion.div>
                 )

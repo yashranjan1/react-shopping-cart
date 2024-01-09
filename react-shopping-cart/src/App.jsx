@@ -45,7 +45,7 @@ function App() {
     ]
 
     return (
-        <div ref={mouseRef} className='h-screen bg-[radial-gradient(circle_farthest-side_at_var(--x,_100px)_var(--y,_100px),_var(--color-secondary)_0%,_transparent_50%,_transparent_100%)] '>
+        <div ref={mouseRef} className='min-h-screen bg-[radial-gradient(circle_farthest-side_at_var(--x,_100px)_var(--y,_100px),_var(--color-secondary)_0%,_transparent_50%,_transparent_100%)] '>
             <Navbar />
             <Routes>        
                 <Route path="/"  element={<Products items={ items }/>} />
