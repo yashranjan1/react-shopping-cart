@@ -73,7 +73,7 @@ const Cart = () => {
                                     }}
                                     key={`item-${item.id}`}
                                     >
-                                        <div className="flex grow sm:flex-col w-full">
+                                        <div className="flex grow w-full">
                                             <div className="grow-0">
                                                 <img src={`../src/assets/${item.itemImage}`} className="max-w-36 md:max-w-xs rounded-xl " />
                                             </div>
