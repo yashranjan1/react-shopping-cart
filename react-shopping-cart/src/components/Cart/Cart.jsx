@@ -38,6 +38,7 @@ const Cart = () => {
                         duration:"1",
                         delay:"0.3"
                     }}
+                    key="no-items-text"
                     className="absolute"
                     >
                         <h1 className="text-white font-montserrat font-thin text-5xl mb-8">You have no items, add some items and come back here!</h1>
@@ -47,6 +48,7 @@ const Cart = () => {
                     <div className="flex flex-wrap w-7/12">
                         <AnimatePresence>
                             { count > 0 && <motion.div className="w-full"
+                            key="hr-exit"
                             exit={{
                                 x: -1000,
                                 opacity: 0
@@ -69,6 +71,7 @@ const Cart = () => {
                                     transition={{
                                         duration:"0.4"
                                     }}
+                                    key={`item-${item.id}`}
                                     >
                                         <div className="flex grow">
                                             <div className="grow-0">
@@ -115,37 +118,39 @@ const Cart = () => {
                         })}
                     </div>
                     <div className="w-4/12 ml-20">
-                        {count > 0 && <motion.div
-                        className="w-full bg-theme-color border-[1.5px] rounded-lg border-white pt-9 px-9"
-                        exit={{
-                            opacity: 0
-                        }}
-                        transition={{
-                            duration:"1"
-                        }}
-
-                        >
-                            <p className="text-white font-semibold text-lg pb-3">Order Summary</p>
-                            <div className="py-5 flex">
-                                <div className="text-white text-md">Sub-total</div>
-                                <div className="text-white text-md text-right grow mr-3">&#x20b9; {price}</div>
-                            </div>
-                            <hr className="w-full" />
-                            <div className="py-5 flex">
-                                <div className="text-white text-md">Shipping</div>
-                                <div className="text-white text-md text-right grow mr-3">&#x20b9; 500</div>
-                            </div>
-                            <hr className="w-full" />
-                            <div className="py-5 flex">
-                                <div className="text-white text-md">VAT (10%)</div>
-                                <div className="text-white text-md text-right grow mr-3">&#x20b9; {0.1 * price}</div>
-                            </div>
-                            <hr className="w-full" />
-                            <div className="py-5 flex mb-3">
-                                <div className="text-white font-semibold text-lg">Order total</div>
-                                <div className="text-white font-semibold text-lg text-right grow mr-3">&#x20b9; {parseFloat(1.1 * price + 500).toFixed(2)}</div>
-                            </div>
-                        </motion.div>}
+                        <AnimatePresence>
+                            {count > 0 && <motion.div
+                            className="w-full bg-theme-color border-[1.5px] rounded-lg border-white pt-9 px-9"
+                            exit={{
+                                opacity:0
+                            }}
+                            transition={{
+                                duration:"0.5"
+                            }}
+                            key="order-summ"
+                            >
+                                <p className="text-white font-semibold text-lg pb-3">Order Summary</p>
+                                <div className="py-5 flex">
+                                    <div className="text-white text-md">Sub-total</div>
+                                    <div className="text-white text-md text-right grow mr-3">&#x20b9; {price}</div>
+                                </div>
+                                <hr className="w-full" />
+                                <div className="py-5 flex">
+                                    <div className="text-white text-md">Shipping</div>
+                                    <div className="text-white text-md text-right grow mr-3">&#x20b9; 500</div>
+                                </div>
+                                <hr className="w-full" />
+                                <div className="py-5 flex">
+                                    <div className="text-white text-md">VAT (10%)</div>
+                                    <div className="text-white text-md text-right grow mr-3">&#x20b9; {0.1 * price}</div>
+                                </div>
+                                <hr className="w-full" />
+                                <div className="py-5 flex mb-3">
+                                    <div className="text-white font-semibold text-lg">Order total</div>
+                                    <div className="text-white font-semibold text-lg text-right grow mr-3">&#x20b9; {parseFloat(1.1 * price + 500).toFixed(2)}</div>
+                                </div>
+                            </motion.div>}
+                        </AnimatePresence>
                     </div>
                 </div>
             </div>
