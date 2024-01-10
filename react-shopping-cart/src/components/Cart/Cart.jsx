@@ -63,7 +63,7 @@ const Cart = () => {
                             return (
                                 <AnimatePresence key={item.id}>
                                     { item.quantity && <motion.div 
-                                    className="flex flex-col grow"
+                                    className="flex flex-col grow w-full"
                                     exit={{
                                         x: -1000,
                                         opacity: 0
@@ -73,7 +73,7 @@ const Cart = () => {
                                     }}
                                     key={`item-${item.id}`}
                                     >
-                                        <div className="flex grow sm:flex-col">
+                                        <div className="flex grow sm:flex-col w-full">
                                             <div className="grow-0">
                                                 <img src={`../src/assets/${item.itemImage}`} className="max-w-36 md:max-w-xs rounded-xl " />
                                             </div>
