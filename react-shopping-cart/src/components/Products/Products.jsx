@@ -13,9 +13,9 @@ const add = (id) => {
 
 const Products = (props) => {
     return ( 
-        <div className="ml-28 mt-14">
+        <div className="sm:ml-28 sm:mr-[72px] sm:my-14 m-10">
             <h1 className="text-white font-montserrat font-bold text-5xl mb-8">Popular Items</h1>
-            <div className="flex" >
+            <div className="flex flex-wrap" >
             {props.items.map((item)=>{
                 return (
                     <motion.div  
@@ -30,7 +30,7 @@ const Products = (props) => {
                         ease: "backInOut"
                     }}
                     key={item.id}
-                    className="max-w-sm bg-theme-color border rounded-lg border-gray-700 mr-10">
+                    className="max-w-sm bg-theme-color border rounded-lg border-gray-700 sm:mr-10 mb-10">
                         <img className="rounded-t-lg" src={`../src/assets/${item.itemImage}`} alt="" />
                         <div className="p-5 font-montserrat">
                             <h5 className="mb-2 text-2xl font-thin tracking-tight text-white font-mono">{item.itemName}</h5>

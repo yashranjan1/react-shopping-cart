@@ -22,7 +22,7 @@ const Cart = () => {
 
     return ( 
         <>  
-            <div className="mt-14 ml-28">
+            <div className="md:ml-28 md:mr-[72px] md:my-14 m-10">
                 <h1 className="text-white font-montserrat font-bold text-5xl mb-8">Your Items</h1>
                 <AnimatePresence>
                     { count == 0 && <motion.div
@@ -44,8 +44,8 @@ const Cart = () => {
                         <h1 className="text-white font-montserrat font-thin text-5xl mb-8">You have no items, add some items and come back here!</h1>
                     </motion.div>}
                 </AnimatePresence>
-                <div className="flex w-full font-montserrat"> 
-                    <div className="flex flex-wrap w-7/12">
+                <div className="flex flex-wrap xl:flex-nowrap w-full font-montserrat"> 
+                    <div className="flex flex-wrap w-full xl:w-7/12">
                         <AnimatePresence>
                             { count > 0 && <motion.div className="w-full"
                             key="hr-exit"
@@ -56,7 +56,7 @@ const Cart = () => {
                             transition={{
                                 duration:"0.4"
                             }}>
-                                <hr className="mb-9 w-full" />
+                            <hr className="mb-9 w-full" />
                             </motion.div>}
                         </AnimatePresence>
                         {snap.cartItems.map((item)=>{
@@ -73,15 +73,16 @@ const Cart = () => {
                                     }}
                                     key={`item-${item.id}`}
                                     >
-                                        <div className="flex grow">
+                                        <div className="flex grow sm:flex-col">
                                             <div className="grow-0">
-                                                <img src={`../src/assets/${item.itemImage}`} className="max-w-xs rounded-xl" />
+                                                <img src={`../src/assets/${item.itemImage}`} className="max-w-36 md:max-w-xs rounded-xl " />
                                             </div>
                                             <div className="ml-8 grow w-full">
-                                                <h1 className="text-2xl font-thin tracking-tight mb-5 text-white font-mono">{item.itemName}</h1>
-                                                <p className="text-white mb-3">&#x20b9; {item.price}</p>
-                                                <div className="relative flex items-center">
-                                                    <p className="mr-4 text-white">Quantity:</p>
+                                                <h1 className="md:text-2xl text-lg font-thin tracking-tight mb-5 text-white font-mono">{item.itemName}</h1>
+                                                <p className="text-white md:mb-3">&#x20b9; {item.price}</p>
+                                                <div className="relative flex items-center flex-wrap">
+                                                    <p className="mr-4 text-white mt-5 md:mt-0">Quantity:</p>
+                                                    <div className="flex">
                                                     <button type="button" className="bg-theme-color rounded-s-lg p-3 h-11 border-2 border-r-0 border-slate-800 active:bg-slate-800/40" onClick={()=>decreaseQuantity(item)}>
                                                         <svg className="w-3 h-3 text-white" viewBox="0 0 18 2">
                                                             <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h16"/>
@@ -95,6 +96,7 @@ const Cart = () => {
                                                             <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 1v16M1 9h16"/>
                                                         </svg>
                                                     </button>
+                                                    </div>
                                                 </div>   
                                             </div>
                                             <div className="mr-5">
@@ -109,7 +111,7 @@ const Cart = () => {
                                                 </button>
                                             </div>
                                         </div>
-                                        <div className="w-full">
+                                        <div className="flex w-full">
                                             <hr className="my-9 w-full" />
                                         </div>
                                     </motion.div>}
@@ -117,7 +119,7 @@ const Cart = () => {
                             )
                         })}
                     </div>
-                    <div className="w-4/12 ml-20">
+                    <div className="xl:w-4/12 xl:ml-20 w-full">
                         <AnimatePresence>
                             {count > 0 && <motion.div
                             className="w-full bg-theme-color border-[1.5px] rounded-lg border-white pt-9 px-9"
